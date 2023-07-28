@@ -24,7 +24,7 @@ BREVE EXPLICACIÓN DE CÓMO FUNCIONA (O DEBERÍA FUNCIONAR) ESTE PROYECTO:
 
 COMO FUNCIONA EL CÓDIGO:
 
-Para arrancar el código se debe correr como proyecto desde el archivo ‘util/Principal.java’ quien es el que contiene el ‘main'.
+Para arrancar el código se debe correr como proyecto desde el archivo src/util/Principal.java quien es el que contiene el ‘main'.
 proyecto se divide en 3 ‘package’ util, gui y CuadrosWind:
 
 'util' contienen las clases que como se contienen y se hacen los cálculos.
