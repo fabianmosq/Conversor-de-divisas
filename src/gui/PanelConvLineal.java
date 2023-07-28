@@ -1,5 +1,6 @@
 package gui;
 import util.Conversion;
+import util.iniciarPrograma;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +15,9 @@ import javax.swing.JTextField;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
 
 import javax.swing.JOptionPane;
 
@@ -21,8 +25,12 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class PanelConvLineal extends JFrame implements ActionListener {
+public class PanelConvLineal extends JFrame implements ActionListener, WindowListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 
 	 */
@@ -37,9 +45,12 @@ public class PanelConvLineal extends JFrame implements ActionListener {
 	private String entrada = null;
 	private String salida = null;
 	
-	Conversion star;
-	Simbolismo simbolo;
-	public PanelConvLineal() {}
+	private Conversion star;
+	private Simbolismo simbolo;
+	private iniciarPrograma menu = new iniciarPrograma();
+	
+	public PanelConvLineal() {
+	}
 	public PanelConvLineal(int eleccion) {
 		this.eleccion = eleccion;
 		simbolo = new Simbolismo(this.eleccion);
@@ -58,6 +69,7 @@ public class PanelConvLineal extends JFrame implements ActionListener {
 	 */
 	private void iniciarVentana() {
 		// TODO Auto-generated method stub
+		addWindowListener(this);
 		setTitle("Alura challeng");
 		setBounds(100, 100, 600, 301);
 		contentPane = new JPanel();
@@ -163,11 +175,9 @@ public class PanelConvLineal extends JFrame implements ActionListener {
 	private String simboloSalida() {
 		
 	}*/
-	
+	//Eventos de button ***************
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
 		
 		if  (btnEntrada==e.getSource()) {
 			entrada = (String) JOptionPane.showInputDialog(null,
@@ -202,4 +212,48 @@ public class PanelConvLineal extends JFrame implements ActionListener {
 			}			
 		}                  
 	}
+	//Eventos de window ***************
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("funciona win closing");
+		int vall = JOptionPane.showConfirmDialog(
+				this,
+				"Desea volver al menú?",
+				"confi cierre",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.WARNING_MESSAGE
+				);
+		if (vall == JOptionPane.YES_OPTION) {
+			dispose();
+			menu.desplegarOpciones();
+			System.out.println("el nuevo "+menu);
+		}
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+	
 }

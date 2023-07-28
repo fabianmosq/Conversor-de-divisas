@@ -10,10 +10,11 @@ public class iniciarPrograma {
 	}
 
 	public iniciarPrograma() {
-		desplegarOpciones();
+		
 		
 	}
-	private void desplegarOpciones() {
+	
+	public void desplegarOpciones() {
 		/*
 		 * int laats = JOptionPane.showConfirmDialog(null, "funciona plis");
 		 * System.out.println(laats); 
@@ -37,7 +38,9 @@ public class iniciarPrograma {
 		System.out.println(numLista);
 
 		this.eleccion = numLista;
+		System.out.println("eleccion es esta");
 		ListaConv tipoConversion = new ListaConv(eleccion);
+		System.out.println(tipoConversion);
 		/*
 		 * String pala = (String) opciones[3]; System.out.println(pala);
 		 * System.out.println(busArray(opciones, pala));

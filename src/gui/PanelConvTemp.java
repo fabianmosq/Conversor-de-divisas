@@ -1,7 +1,6 @@
 package gui;
 import util.ConversionTemp;
-
-import java.awt.EventQueue;
+import util.iniciarPrograma;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,24 +10,29 @@ import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import java.awt.GridLayout;
+import javax.swing.JOptionPane;
+
+
 import java.awt.GridBagLayout;
 import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 //import java.awt.event.FocusAdapter;
 //import java.awt.event.FocusEvent;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.text.Element;
+
+
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.DropMode;
 
-public class PanelConvTemp extends JFrame implements ActionListener, DocumentListener  {
+
+public class PanelConvTemp extends JFrame implements ActionListener, DocumentListener, WindowListener  {
 
 	/**
 	 * 
@@ -42,15 +46,20 @@ public class PanelConvTemp extends JFrame implements ActionListener, DocumentLis
 	
 	private ConversionTemp calcularTemp = new ConversionTemp ();
 	private JButton btnResetear;
-
-	/**
-	 * Launch the application.
-	 */
+	
+	private iniciarPrograma menu2 = new iniciarPrograma();
 
 	/**
 	 * Create the frame.
 	 */
 	public PanelConvTemp() {
+		iniciarVentana();
+		
+	}
+	private void iniciarVentana() {
+		
+		addWindowListener(this);
+		setTitle("Alura challeng");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 480, 300);
 		contentPane = new JPanel();
@@ -149,6 +158,7 @@ public class PanelConvTemp extends JFrame implements ActionListener, DocumentLis
 		panel.add(btnResetear, gbc_btnResetear);
 		btnResetear.addActionListener(this);
 	}
+	//Eventos de textField (insert - remove) *********
 	@Override
 	public void removeUpdate(DocumentEvent e) {
 		//System.out.println("Texto insertado: " + textKelvin.getText());
@@ -197,7 +207,7 @@ public class PanelConvTemp extends JFrame implements ActionListener, DocumentLis
 		// TODO Auto-generated method stub
 		
 	}
-
+	//Evento button ***********************************
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -236,5 +246,54 @@ public class PanelConvTemp extends JFrame implements ActionListener, DocumentLis
 			textFa.setText("");
 		}
 
+	}
+	//Evento de window **************
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("funciona win closing");
+		int vall = JOptionPane.showConfirmDialog(
+				this,
+				"Desea volver al menú?",
+				"confi cierre",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.WARNING_MESSAGE
+				);
+		if (vall == JOptionPane.YES_OPTION) {
+			dispose();
+			menu2.desplegarOpciones();
+			System.out.println("El nuevo desde temp "+menu2);
+			
+		}
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
