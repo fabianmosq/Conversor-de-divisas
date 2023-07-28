@@ -25,6 +25,7 @@ proyecto se divide en 3 ‘package’ util, gui y CuadrosWind:
 
 NOTA:
 Ya que se trabajó con librerías para hacer ventanas y cajas de texto, estás no están limitadas a solo valores numéricos.
+Se intentó trabajar con listas separadas por coma, pero al final se trabajó con arreglos (arrays).
 
 
 
