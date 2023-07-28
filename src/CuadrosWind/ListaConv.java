@@ -1,3 +1,7 @@
+/*
+ * aqui se colocan los arrays de las unidades (elementos) y sus respectivos valores
+ * equivalentes, las unidades y los valores deben ocupar la misma posición.
+ */
 package CuadrosWind;
 import gui.PanelConvLineal; //Le movi y eclipse me puso esto, tenía  problemas para llamar
 import gui.PanelConvTemp;							  //la ventana de prueba.
